@@ -18,7 +18,9 @@ export const Task_1 = () => {
   return (
     <div style={{...CONTAINER_STYLES} as any}>
       <Input value={value} onChange={handleChange} />
-      <Title title="I am a title" />
+
+      <Title title={'I am a title'} />
+
     </div>
   );
 };
