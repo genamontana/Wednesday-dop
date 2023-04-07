@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import {FC, useCallback, useState} from 'react';
 
 const FIRST_BUTTON_BACKGROUND = {background: 'tomato'};
 const CONTAINER_STYLES = {display: 'flex', flexDirection: 'column', gap: 10};
@@ -11,12 +11,14 @@ type PropsType = { isChecked: boolean, onSetIsChecked: () => void };
 // If click to Checkbox component Button not re-render
 
 export const Task_2 = () => {
+    console.log('Task_2')
+
   const [firstCount, setFirstCount] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleSetIsChecked = () => setIsChecked(!isChecked);
+  const handleSetIsChecked = useCallback(() => setIsChecked(!isChecked),[isChecked]);
 
-  const handlePlusCountValueClick = () => setFirstCount(prevFirstCount => prevFirstCount + 1);
+  const handlePlusCountValueClick = useCallback(() => setFirstCount(prevFirstCount => prevFirstCount + 1),[]);
 
   return (
     <div style={{...CONTAINER_STYLES} as any}>
